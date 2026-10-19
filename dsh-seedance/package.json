@@ -1,0 +1,51 @@
+{
+  "name": "dsh-seedance",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 插件：让模型自己调用 Seedance（火山方舟）生成视频，落盘并在对话里可播放。",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "seedance",
+    "volcengine",
+    "ark",
+    "video"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

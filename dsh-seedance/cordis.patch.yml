@@ -1,0 +1,6 @@
+# dsh-seedance bundle patch
+# 纯 insert（id + name）可以热挂载，不需要重启宿主。
+# name 必须是实际包名，cordis 按 name import 包。
+- insert:
+    - id: dsh-seedance
+      name: dsh-seedance
