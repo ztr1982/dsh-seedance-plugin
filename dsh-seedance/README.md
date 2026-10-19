@@ -91,17 +91,6 @@ Key 在[火山方舟控制台 → API Key](https://console.volcengine.com/ark) �
 - `mediaUrl` 形如 `http://127.0.0.1:<GUI 端口>/dsh-seedance/media/cgt-xxxx`，浏览器可直接播放、拖进度
 - Ark 的视频地址约 24 小时过期，所以成功即下载，不延迟
 
-### 已验证的真实产物（2026-10-19）
-
-| 场景 | 参数 | 耗时 | 文件 |
-| --- | --- | --- | --- |
-| 文生视频 | 2.0 / 720p / 4s / 16:9 | 141s | `outputs/seedance/2026-10-19-lamp-smoke-cgt-20261019225846-xhcmb.mp4`（1.6MB） |
-| 首帧图生视频 | 2.0 / 480p / 4s / adaptive | 151s | `outputs/seedance/2026-10-19-lamp-i2v-cgt-20261019230233-fz5pg.mp4`（0.76MB） |
-
-两条都验证了：MP4 文件头 `ftypisom`、HTTP 200 `video/mp4`、Range 206。
-
----
-
 ## 五、配置项
 
 优先级：工具参数 > profile patch 配置 > `~/.dsh/dsh-seedance/config.json`（面板写这里，Key 也在里面）> 默认值。
@@ -131,10 +120,6 @@ Key 在[火山方舟控制台 → API Key](https://console.volcengine.com/ark) �
 # 用 DSH 自带的 node（Windows 在 ~/.dsh/dsh-runtimes/... 下），或系统里的 node
 node --test "test/*.test.mjs"
 ```
-
-- 47 项测试：参数夹取、1.x/2.x 请求体、状态映射、Range、下载清理、幂等、失败语义、Key 文件、配置合并、用量统计
-- `test/fixture.mjs` 会把 `index.js` + `lib/` 拷到临时目录并放最小 SDK stub，**源码目录里不留 `node_modules`**
-- 改完宿主代码后，触碰一次 `cordis.patch.yml` 里的 `dsh-seedance` 行即可热重载
 
 ## 七、可视化面板
 
